@@ -46,7 +46,7 @@ namespace WebAPIAuthenticationClient
             }
         }
 
-        // Post a score for the current player
+        // Post a score for the current player  
         
         static public bool PostScore(PlayerScoreObject g)
         {
