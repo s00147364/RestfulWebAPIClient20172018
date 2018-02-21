@@ -30,7 +30,7 @@ namespace ConsoleWebAPIClient
                 if(currentPlayer != null)
                 {
                     PlayerAuthentication.PostScore(new PlayerScoreObject
-                        { GameId = scores.First().GameId, PlayerId = currentPlayer.id, score = r.Next(900,1000) });
+                        { GameId = scores.First().GameId, PlayerId = currentPlayer.Id, score = r.Next(900,1000) });
                 }
                 Console.WriteLine("Top 4 scores After New score Added");
                 foreach (var item in PlayerAuthentication.getScores(4, "Battle Call"))

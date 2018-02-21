@@ -11,8 +11,8 @@
     <Grid>
         <!--<ListBox x:Name="listBox" HorizontalAlignment="Left" Height="73" Margin="71,40,0,0" VerticalAlignment="Top" Width="255" />-->
         <StackPanel>
-        
-         
+            <GameMVVM:GamePlayerView VerticalAlignment="Top" />
+            <GameMVVM:PlayerInfoView VerticalAlignment="Bottom"/>
         </StackPanel>
     </Grid>
 </Window>

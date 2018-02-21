@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using WebAPIAuthenticationClient;
 
-namespace WpfClient
+namespace WpfClient.GameMVVM
 {
     public class PlayerInfoViewModel
     {

@@ -13,10 +13,10 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WpfClient
+namespace WpfClient.GameMVVM
 {
     /// <summary>
-    /// Interaction logic for GamePlayer.xaml
+    /// Interaction logic for GamePlayerView.xaml
     /// </summary>
     public partial class GamePlayerView : UserControl
     {
