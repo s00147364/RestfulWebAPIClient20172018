@@ -24,9 +24,10 @@ namespace WpfClient.GameMVVM
         {
             InitializeComponent();
             var view = new PlayerInfoViewModel();
-            DataContext = view;
-            // Set label to current Player Gamer tag
-            lblTagName.Content = view.currentPlayer.GamerTag;
+            // Set controls
+            txID.Text = view.currentPlayer.Id;
+            txName.Text = view.currentPlayer.UserName;
+            txGamerTag.Text= view.currentPlayer.GamerTag;
         }
     }
 }
