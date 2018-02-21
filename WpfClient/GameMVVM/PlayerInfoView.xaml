@@ -7,13 +7,14 @@
              xmlns:playerInfo="clr-namespace:WpfClient.GameMVVM"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-    <UserControl.DataContext>
+    <!--<UserControl.DataContext>
         <playerInfo:PlayerInfoViewModel/>
-    </UserControl.DataContext>
+    </UserControl.DataContext>-->
     <Grid>
-        <StackPanel DataContext="{Binding playerInfo.currentPlayer}">
+        <!--DataContext="{Binding playerInfo.currentPlayer}"-->
+        <StackPanel >
             <Label>Gamer Tag</Label>
-            <Label Content="{Binding Path= currentPlayer.GamerTag }" ></Label>
+            <Label Name="lblTagName"></Label>
         </StackPanel>
     </Grid>
 </UserControl>
