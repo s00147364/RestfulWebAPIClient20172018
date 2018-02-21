@@ -21,17 +21,34 @@ namespace WpfClient
     /// </summary>
     public partial class MainWindow : Window
     {
+        public MainViewModel mvm { get; set; }
         public MainWindow()
         {
             InitializeComponent();
-            PlayerAuthentication.baseWebAddress = "http://localhost:50574/";
-            IEnumerable<GameScoreObject> list = PlayerAuthentication.getScores(4, "Battle Call")as IEnumerable<GameScoreObject>;
-            this.listBox.ItemsSource = list;
-            
+            mvm = new MainViewModel();
+            this.DataContext = mvm;
+            //this.listBox.ItemsSource = mvm.list.Select(e => e.GamerTag + " " + e.score.ToString()).ToList();
+
         }
 
-        private void listBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+
+    }
+
+    public class MainViewModel
+    {
+        public PlayerProfile currentPlayer { get; set; }
+        public List<GameScoreObject> list { get; set; }
+        public MainViewModel()
         {
+            PlayerAuthentication.baseWebAddress = "http://localhost:50574/";
+
+            if (PlayerAuthentication.login("http://localhost:50574/", "powell.paul@itsligo.ie", "itsPaul$1"))
+            {
+                currentPlayer = PlayerAuthentication.getPlayerProfile();
+                
+            }
+            list = PlayerAuthentication.getScores(4, "Battle Call");
+
 
         }
     }
