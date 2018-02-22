@@ -23,6 +23,7 @@ namespace WpfClient.GameMVVM
             PlayerAuthentication.baseWebAddress = "http://localhost:50574/";
             //ScoreList = new ObservableCollection<GameScoreObject>( PlayerAuthentication.getScores(4, "Battle Call"));
             ScoreList = new ObservableCollection<GameScoreObject>(context.getGameScores(4, "Battle Call"));
+            
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

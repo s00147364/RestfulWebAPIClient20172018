@@ -8,5 +8,7 @@ namespace WpfClient.DAL
 {
     public interface IPlayer<T> : IRepo<T>
     {
+        T getCurrentPlayer();
+       bool login(string username, string password);
     }
 }

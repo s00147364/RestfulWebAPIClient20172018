@@ -8,6 +8,7 @@ namespace WpfClient.DAL
 {
     public interface IRepo<T>
     {
+
         List<T> getEntities();
         T getEntity(int id);
         bool PutEntity(T entity);
