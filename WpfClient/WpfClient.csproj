@@ -36,6 +36,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
@@ -73,6 +74,9 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="DAL\GameRepository.cs" />
+    <Compile Include="DAL\IGameScore.cs" />
+    <Compile Include="DAL\IRepo.cs" />
     <Compile Include="GameMVVM\GamePlayerView.xaml.cs">
       <DependentUpon>GamePlayerView.xaml</DependentUpon>
     </Compile>
@@ -81,6 +85,7 @@
       <DependentUpon>PlayerInfoView.xaml</DependentUpon>
     </Compile>
     <Compile Include="GameMVVM\PlayerInfoViewModel.cs" />
+    <Compile Include="DAL\IPlayer.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
