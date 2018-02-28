@@ -21,12 +21,14 @@ namespace WpfClient
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainViewModel mvm { get; set; }
+
+        //public MainViewModel mvm { get; set; }
         public MainWindow()
         {
+            PlayerAuthentication.baseWebAddress = "http://ppapigameserver.azurewebsites.net/";
             InitializeComponent();
-            mvm = new MainViewModel();
-            this.DataContext = mvm;
+            //mvm = new MainViewModel();
+            //this.DataContext = mvm;
             //this.listBox.ItemsSource = mvm.list.Select(e => e.GamerTag + " " + e.score.ToString()).ToList();
 
         }
@@ -40,9 +42,9 @@ namespace WpfClient
         public List<GameScoreObject> list { get; set; }
         public MainViewModel()
         {
-            PlayerAuthentication.baseWebAddress = "http://localhost:50574/";
+            PlayerAuthentication.baseWebAddress = "http://ppapigameserver.azurewebsites.net/";// "http://localhost:50574/";
 
-            if (PlayerAuthentication.login("http://localhost:50574/", "powell.paul@itsligo.ie", "itsPaul$1"))
+            if (PlayerAuthentication.login( "powell.paul@itsligo.ie", "itsPaul$1"))
             {
                 currentPlayer = PlayerAuthentication.getPlayerProfile();
                 

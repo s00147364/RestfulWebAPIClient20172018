@@ -18,7 +18,10 @@ namespace WpfClient.GameMVVM
         {
             if(DesignerProperties.GetIsInDesignMode(
                 new System.Windows.DependencyObject())) return;
-            PlayerAuthentication.baseWebAddress = "http://localhost:50574/";
+            PlayerAuthentication.baseWebAddress = "http://ppapigameserver.azurewebsites.net/";
+            ////"http://localhost:50574/";
+            ////http://ppapigameserver.azurewebsites.net/
+
             ScoreList = new ObservableCollection<GameScoreObject>( PlayerAuthentication.getScores(4, "Battle Call"));
         }
 

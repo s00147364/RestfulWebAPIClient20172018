@@ -8,6 +8,8 @@ using System.Net.Http.Formatting;
 //using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
+using Newtonsoft.Json;
 
 namespace WebAPIAuthenticationClient
 {
@@ -19,6 +21,7 @@ namespace WebAPIAuthenticationClient
         static public string baseWebAddress;
         static public string PlayerToken = "";
         static public AUTHSTATUS PlayerStatus = AUTHSTATUS.NONE;
+        static public string IgdbUserToken = "PUT YOUR EXTERNAL WEB API TOKEN HERE";
         static public List<GameScoreObject> getScores(int count, string Game )
             {
             using (var client = new HttpClient())
@@ -31,6 +34,36 @@ namespace WebAPIAuthenticationClient
                     return resultContent;
                 }
             }
+
+        static public dynamic getExtGame(int gameID)
+        {
+            using (var client = new HttpClient())
+            {
+                client.DefaultRequestHeaders.Accept.Clear();
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                client.DefaultRequestHeaders.Add("user-key", IgdbUserToken);
+                var response = client.GetAsync("https://api-endpoint.igdb.com/games/" + gameID.ToString()).Result;
+                var resultContent = response.Content.ReadAsAsync<JToken>(
+                    new[] { new JsonMediaTypeFormatter() }).Result;
+
+
+                var jname = resultContent.Children()["name"].Values<string>().FirstOrDefault();
+                var jsummary = resultContent.Children()["summary"].Values<string>().FirstOrDefault();
+                // url is nested in cover object
+                var jcover = resultContent.Children()["cover"]["url"].Values<string>().FirstOrDefault();
+                ExternalGameObject eobj = 
+                                        new ExternalGameObject
+                                        {
+                                            Name = jname,
+                                            Summary = jsummary,
+                                            Cover = jcover
+                                        };
+
+
+                
+                return eobj;
+            }
+        }
 
         static public PlayerProfile getPlayerProfile()
         {
@@ -65,7 +98,7 @@ namespace WebAPIAuthenticationClient
             }
 
         }
-    static public bool login(string EndPoint, string username, string password)
+    static public bool login(string username, string password)
         {
             using (var client = new HttpClient())
             {
@@ -77,7 +110,7 @@ namespace WebAPIAuthenticationClient
                         new KeyValuePair<string, string>("username", username),
                         new KeyValuePair<string, string>("password", password),
                     });
-                var result = client.PostAsync(EndPoint + "Token", content).Result;
+                var result = client.PostAsync(baseWebAddress + "Token", content).Result;
                 try
                 {
                     var resultContent = result.Content.ReadAsAsync<Token>(

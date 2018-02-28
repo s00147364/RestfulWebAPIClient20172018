@@ -17,9 +17,11 @@ namespace WpfClient.GameMVVM
             if (DesignerProperties.GetIsInDesignMode(
                         new System.Windows.DependencyObject())) return;
 
-            PlayerAuthentication.baseWebAddress = "http://localhost:50574/";
+            PlayerAuthentication.baseWebAddress = "http://ppapigameserver.azurewebsites.net/";
 
-            if (PlayerAuthentication.login("http://localhost:50574/", "powell.paul@itsligo.ie", "itsPaul$1"))
+                //"http://localhost:50574/";
+
+            if (PlayerAuthentication.login("powell.paul@itsligo.ie", "itsPaul$1"))
             {
                 currentPlayer = PlayerAuthentication.getPlayerProfile();
             }
