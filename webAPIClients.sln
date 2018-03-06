@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CLWebAPIClient", "CLWebAPIC
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleWebAPIClient", "ConsoleWebAPIClient\ConsoleWebAPIClient.csproj", "{94584FBC-B15C-4D21-B100-63C7F7FA87FB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfClient", "WpfClient\WpfClient.csproj", "{846BF035-153C-483D-9169-7A892289B332}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{94584FBC-B15C-4D21-B100-63C7F7FA87FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{94584FBC-B15C-4D21-B100-63C7F7FA87FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{94584FBC-B15C-4D21-B100-63C7F7FA87FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{846BF035-153C-483D-9169-7A892289B332}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{846BF035-153C-483D-9169-7A892289B332}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{846BF035-153C-483D-9169-7A892289B332}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{846BF035-153C-483D-9169-7A892289B332}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
